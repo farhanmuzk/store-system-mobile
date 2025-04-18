@@ -1,0 +1,146 @@
+[
+    {
+        "berat": "1 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.500.000",
+        "jasa": "Shopee Express",
+        "estimasi": "10 April 2025"
+    },
+    {
+        "berat": "1 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.550.000",
+        "jasa": "J&T Express",
+        "estimasi": "11 April 2025"
+    },
+    {
+        "berat": "1 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 1.600.000",
+        "jasa": "SiCepat",
+        "estimasi": "12 April 2025"
+    },
+    {
+        "berat": "1 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.450.000",
+        "jasa": "AnterAja",
+        "estimasi": "9 April 2025"
+    },
+    {
+        "berat": "1 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.500.000",
+        "jasa": "JNE",
+        "estimasi": "10 April 2025"
+    },
+    {
+        "berat": "1 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 1.550.000",
+        "jasa": "TIKI",
+        "estimasi": "11 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.700.000",
+        "jasa": "Shopee Express",
+        "estimasi": "12 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.750.000",
+        "jasa": "J&T Express",
+        "estimasi": "13 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 1.800.000",
+        "jasa": "SiCepat",
+        "estimasi": "14 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.650.000",
+        "jasa": "AnterAja",
+        "estimasi": "11 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.700.000",
+        "jasa": "JNE",
+        "estimasi": "12 April 2025"
+    },
+    {
+        "berat": "2 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 1.750.000",
+        "jasa": "TIKI",
+        "estimasi": "13 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.900.000",
+        "jasa": "Shopee Express",
+        "estimasi": "14 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.950.000",
+        "jasa": "J&T Express",
+        "estimasi": "15 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "COD",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 2.000.000",
+        "jasa": "SiCepat",
+        "estimasi": "16 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Barat",
+        "harga": "Rp 1.850.000",
+        "jasa": "AnterAja",
+        "estimasi": "13 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Tengah",
+        "harga": "Rp 1.900.000",
+        "jasa": "JNE",
+        "estimasi": "14 April 2025"
+    },
+    {
+        "berat": "3 Kg",
+        "bayar": "TF",
+        "provinsi": "Jawa Timur",
+        "harga": "Rp 1.950.000",
+        "jasa": "TIKI",
+        "estimasi": "15 April 2025"
+    }
+]

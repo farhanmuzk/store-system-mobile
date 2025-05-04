@@ -10,7 +10,7 @@
         </a>
 
         <button class="text-lg font-bold px-8 py-3 bg-gray-700 text-white rounded-lg shadow-lg focus:outline-none">
-            Notification
+            Incoming Order
         </button>
     </div>
     <div class="flex space-x-4 justify-center items-center px-4 mb-6">

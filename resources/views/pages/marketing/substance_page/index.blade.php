@@ -46,10 +46,6 @@
             class="w-[250px] py-4 bg-gray-700 text-white rounded-lg shadow-md text-lg text-center hover:bg-gray-500 focus:outline-none">
             Tetang Produk
         </a>
-        <a href="/payment-success"
-            class="w-[250px] py-4 bg-gray-700 text-white rounded-lg shadow-md text-lg text-center hover:bg-gray-500 focus:outline-none">
-            Tetang Produk
-        </a>
         <a href="/content-requirements"
             class="w-[250px] py-4 bg-gray-700 text-white rounded-lg shadow-md text-lg text-center hover:bg-gray-500 focus:outline-none">
             Syarat Konten

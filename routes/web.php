@@ -10,7 +10,10 @@
         NegotiationController,
         IncomingOrderController,
         ProductDataController,
-        MoneySupplyController
+        MoneySupplyController,
+        MarketingController,
+        ContentRequirementsController,
+        SendingReportController
     };
 
     // ========== Auth & Login ==========
@@ -33,13 +36,22 @@
     Route::get('/riwayat', fn () => view('pages.excuting.paying_page.riwayat_page'))->middleware(['auth', 'verified'])->name('/riwayat');
     Route::get('/monitoring', fn () => view('pages.excuting.monitoring_page.index'))->middleware(['auth', 'verified'])->name('/monitoring');
     Route::get('/monitoring-page', fn () => view('pages.excuting.monitoring_page.monitoring_page'))->middleware(['auth', 'verified'])->name('/monitoring-page');
-    Route::get('/money-supply-monitoring', fn () => view('pages.excuting.monitoring_page.money_supply_notification'))->middleware(['auth', 'verified'])->name('/monitoring-supply');
-    Route::get('/ordering-report', fn () => view('pages.excuting.monitoring_page.ordering_report'))->middleware(['auth', 'verified'])->name('/ordering-report');
-    Route::get('/paying-report', fn () => view('pages.excuting.monitoring_page.paying_report'))->middleware(['auth', 'verified'])->name('/paying-report');
+    Route::get('/money-supply-monitoring', [MoneySupplyController::class, 'monitoringPage']) ->middleware(['auth', 'verified'])->name('monitoring-supply');
+    Route::put('/money-supply-monitoring/update', [MoneySupplyController::class, 'updateFromMonitoring'])->middleware(['auth', 'verified'])->name('monitoring-supply.update');
+    Route::get('/ordering-report', [SendingReportController::class, 'orderingReport'])->middleware(['auth', 'verified'])->name('ordering-report');
+    Route::post('/ordering-report/update', [SendingReportController::class, 'updateTeks'])->middleware(['auth', 'verified'])->name('ordering-report.update');
+    Route::get('/paying-report', [SendingReportController::class, 'payingReport'])->middleware(['auth', 'verified'])->name('paying-report');
+    Route::post('/paying-report/update', [SendingReportController::class, 'updateTeks_paying'])->middleware(['auth', 'verified'])->name('paying-report.update');
     Route::post('/money-supply-upload/upload', [MoneySupplyController::class, 'uploadMoneySupply'])->name('money-supply-upload');
     Route::get('/gallery-order', [NotificationController::class, 'orderApproval'])->name('gallery-order');
     Route::put('/gallery-order/{order}', [NotificationController::class, 'updateOrder'])->name('gallery-order.update');
-    Route::get('/send-report', fn () => view('pages.excuting.ordering_page.send_report'))->middleware(['auth', 'verified'])->name('send-report');
+    Route::get('/shipping-estimation', fn () => view('pages.negotiation.shipping_estimate_features_page.index'))->name('shiping-estimation');
+    Route::get('/trouble-consultation', fn () => view('pages.negotiation.trouble_consultation_page.index'))->name('trouble-consultation');
+    Route::get('/send-report', [SendingReportController::class, 'index'])->middleware(['auth', 'verified'])->name('send-report.index');
+    Route::post('/send-report', [SendingReportController::class, 'store'])->middleware(['auth', 'verified'])->name('send-report.store');
+    Route::get('/send-report-paying',  [SendingReportController::class, 'index_paying'])->middleware(['auth', 'verified'])->name('send-paying-report');
+    Route::post('/send-report-paying', [SendingReportController::class, 'store_paying'])->middleware(['auth', 'verified'])->name('send-paying-report.store');
+
     Route::get('/incoming-notification', [IncomingOrderController::class, 'getNotifications'])->name('incoming-notification');
         Route::get('/history-notification', [IncomingOrderController::class, 'getNotifications'])->name('history-notification');
 
@@ -54,8 +66,10 @@
 
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/money-supply', [MoneySupplyController::class, 'index'])->name('money-supply');
-        Route::post('/money-supply', [MoneySupplyController::class, 'store']);
+        Route::post('/money-supply', [MoneySupplyController::class, 'store'])->name('money-supply.store');
+        Route::put('/money-supply/update/{id}', [MoneySupplyController::class, 'updateMoneySupply'])->name('money-supply.update');
     });
+
 
     // ========== Payment ==========
     Route::middleware(['auth', 'verified'])->prefix('payment')->group(function () {
@@ -69,8 +83,8 @@
         Route::get('/', [NegotiationController::class, 'index'])->name('pages.negotiation.index');
         Route::post('/', [NegotiationController::class, 'store'])->name('negotiation.store');
         Route::get('/verification', [NegotiationController::class, 'verification'])->name('negotiation.verification');
-        Route::get('/trouble-consultation', fn () => view('pages.negotiation.trouble_consultation_page.index'))->name('trouble-consultation');
-        Route::get('/shipping-estimation', fn () => view('pages.negotiation.shipping_estimate_features_page.index'))->name('shiping-estimation');
+
+
     });
 
     // ========== Incoming Order ==========
@@ -109,7 +123,10 @@
         Route::get('/substance', fn () => view('pages.marketing.substance_page.index'))->name('substance');
         Route::get('/about-product', [ProductController::class, 'index'])->name('pages.marketing.substance_page.about_product');
         Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
-        Route::get('/content-requirements', fn () => view('pages.marketing.substance_page.content_requirements'))->name('content-requirements');
+        Route::get('/content-requirements', [ContentRequirementsController::class, 'show'])->name('content-requirements');
+        Route::post('/content-requirements', [ContentRequirementsController::class, 'store'])->name('content-requirements.store');
+        Route::post('/update-user-hak-akses', [ContentRequirementsController::class, 'updateUserHakAkses'])->name('update-user-hak-akses');
+
     });
 
     // ========== Content Pages ==========

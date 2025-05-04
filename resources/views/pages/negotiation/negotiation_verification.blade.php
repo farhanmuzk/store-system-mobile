@@ -57,7 +57,7 @@
                 </a>
             </div>
             <div class="flex items-center justify-center space-x-2 mt-4 w-full gap-2 mb-4">
-                <a href="/shiping-estimation"
+                <a href="/shipping-estimation"
                     class="text-sm text-center font-bold px-4 py-2 bg-green-700 text-white rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none">
                     Fitur </br> Ongkir & Estimasi
                 </a>

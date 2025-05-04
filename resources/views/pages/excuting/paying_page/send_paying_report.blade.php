@@ -21,7 +21,7 @@
     <div class="px-8 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Baris pertama -->
-            <form id="reportForm" action="{{ route('send-report.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="reportForm" action="{{ route('send-paying-report.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Upload Gambar -->
@@ -41,7 +41,7 @@
                         </div>
 
                         <input type="file" id="imageInput" name="file" accept="image/*" class="hidden" onchange="previewImage(event)">
-                        <input type="hidden" name="type_report" value="ordering">
+                        <input type="hidden" name="type_report" value="paying">
 
                         <!-- Tombol Submit -->
                         <div id="submitBtnContainer" class="hidden">

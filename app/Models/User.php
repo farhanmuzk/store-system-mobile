@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'id_hak_akses',
     ];
 
     /**
@@ -47,8 +48,20 @@ class User extends Authenticatable
         ];
     }
 
+    public function hakAkses()
+    {
+        return $this->belongsTo(HakAkses::class, 'id_hak_akses');
+    }
+
+
     public function isAdmin()
     {
         return $this->role === 'admin';
     }
+
+    public function sendingReports()
+    {
+        return $this->hasMany(SendingReport::class);
+    }
+
 }

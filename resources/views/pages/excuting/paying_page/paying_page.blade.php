@@ -28,7 +28,7 @@
                 Paying Member
             </a>
         </div>
-        <a href="/send-report"
+        <a href="/send-report-paying"
             class="w-[200px] bg-gray-700 text-white py-3 rounded-lg shadow transition p-2 text-center">
             Send Report
         </a>

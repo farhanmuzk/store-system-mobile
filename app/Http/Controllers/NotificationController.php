@@ -19,6 +19,16 @@ class NotificationController extends Controller
         return view('notification', compact('notifications'));
     }
 
+    public function payingMember()
+    {
+        $notifications = Notification::where('type', 'notification')
+            ->whereIn('status', ['pending'])
+            ->get();
+
+        return view('pages.excuting.paying_page.paying_member', compact('notifications'));
+
+    }
+
     public function orderApproval()
     {
         $notifications = Notification::where('type', 'notification_order')->get();
@@ -136,6 +146,20 @@ class NotificationController extends Controller
             // tambahkan validasi lain sesuai struktur order kamu
         ]);
     }
+
+    public function riwayat(Request $request)
+    {
+        // Ambil status filter dari query parameter (default: 'pending')
+        $status = $request->get('status', 'pending');
+
+        // Ambil notifikasi berdasarkan status
+        $notifications = Notification::where('type', 'notification')
+            ->where('status', $status)
+            ->get();
+
+        return view('pages.excuting.paying_page.riwayat_page', compact('notifications'));
+    }
+
 
     public function approve(Notification $notification)
     {

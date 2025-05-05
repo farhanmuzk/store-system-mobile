@@ -36,8 +36,7 @@ class PaymentController extends Controller
             'noted' => 'Payment waiting for approval',
         ]);
 
-        return redirect()->route('pages.marketing.payment_page.payment_choice', ['id' => $payment->id])
-                         ->with('success', 'Bukti pembayaran berhasil diunggah! Menunggu persetujuan admin.');
+        return redirect()->route('pages.marketing.payment_page.payment_choice', ['id' => $payment->id])->with('success', 'Bukti pembayaran berhasil diunggah! Menunggu persetujuan admin.');
     }
 
     public function updatePayment(Request $request, $id)
@@ -90,6 +89,13 @@ class PaymentController extends Controller
         if (!$notification || $notification->status !== 'approved') {
             return redirect()->route('dashboard')->with('error', 'Pembayaran belum disetujui oleh admin.');
         }
+
+        return view('pages.marketing.payment_page.payment_choice', compact('payment'));
+    }
+
+    public function editGetData($id)
+    {
+        $payment = Payment::findOrFail($id);
 
         return view('pages.marketing.payment_page.payment_choice', compact('payment'));
     }

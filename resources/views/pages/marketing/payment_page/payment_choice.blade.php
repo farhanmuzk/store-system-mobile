@@ -27,7 +27,7 @@
                 <p class="mb-2"> 5. Terima Pembayaran</p>
             </div>
 
-            <form action="{{ route('payment.update', ['id' => request()->id]) }}" method="POST">
+            <form action="{{ route('payment.update', ['id' => $payment->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <input type="text" id="cash-code" name="cash_code" class="w-full p-1 border border-gray-300 rounded bg-white" value="{{ $payment->cash_code ?? '' }}" readonly>

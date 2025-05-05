@@ -30,10 +30,12 @@
     Route::get('/ordering', fn () => view('pages.excuting.ordering_page.index'))->middleware(['auth', 'verified'])->name('ordering');
     Route::get('/paying', fn () => view('pages.excuting.paying_page.index'))->middleware(['auth', 'verified'])->name('paying');
     Route::get('/paying-page', fn () => view('pages.excuting.paying_page.paying_page'))->middleware(['auth', 'verified'])->name('paying-page');
-    Route::match(['get', 'post'], '/paying-member', [MoneySupplyController::class, 'index'])->name('paying-member');
+    Route::get('/paying-member', [NotificationController::class, 'payingMember'])->middleware(['auth', 'verified'])->name('paying-member');
+    // Route::get('/paying-member', fn () => view('pages.excuting.paying_page.paying_member'))->middleware(['auth', 'verified'])->name('paying-member');
 
 
-    Route::get('/riwayat', fn () => view('pages.excuting.paying_page.riwayat_page'))->middleware(['auth', 'verified'])->name('/riwayat');
+
+    Route::get('/riwayat', [NotificationController::class, 'riwayat'])->middleware(['auth', 'verified'])->name('riwayat');
     Route::get('/monitoring', fn () => view('pages.excuting.monitoring_page.index'))->middleware(['auth', 'verified'])->name('/monitoring');
     Route::get('/monitoring-page', fn () => view('pages.excuting.monitoring_page.monitoring_page'))->middleware(['auth', 'verified'])->name('/monitoring-page');
     Route::get('/money-supply-monitoring', [MoneySupplyController::class, 'monitoringPage']) ->middleware(['auth', 'verified'])->name('monitoring-supply');
@@ -75,6 +77,7 @@
     Route::middleware(['auth', 'verified'])->prefix('payment')->group(function () {
         Route::get('/choice/{id}', [PaymentController::class, 'showChoice'])->name('pages.marketing.payment_page.payment_choice');
         Route::post('/', [PaymentController::class, 'store'])->name('payment.store');
+        Route::get('/{id}/update', [PaymentController::class, 'editGetData'])->name('payment.edit');
         Route::put('/{id}/update', [PaymentController::class, 'updatePayment'])->name('payment.update');
     });
 

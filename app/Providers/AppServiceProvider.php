@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,12 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (app()->environment('production')) {
-            URL::forceScheme('https'); // penting untuk redirect & form
-            app(Request::class)->setTrustedProxies(
-                [request()->getClientIp()],
-                Request::HEADER_X_FORWARDED_ALL
-            );
+       if (env('APP_ENV') === 'production') {
+        URL::forceScheme('https');
         }
     }
 }

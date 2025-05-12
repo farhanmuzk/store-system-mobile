@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         if (app()->environment('production')) {
             URL::forceScheme('https'); // penting untuk redirect & form
-            Request::setTrustedProxies(
-                [Request::getClientIp()],
+            app(Request::class)->setTrustedProxies(
+                [request()->getClientIp()],
                 Request::HEADER_X_FORWARDED_ALL
             );
         }
